@@ -1,0 +1,56 @@
+User
+could you write a python code to print prime numbers until x
+ChatGPT
+Certainly! Here's a Python code that prints all prime numbers up to a given number x:
+
+python
+Copy code
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def print_prime_numbers(x):
+    primes = []
+    for number in range(2, x + 1):
+        if is_prime(number):
+            primes.append(number)
+    print("Prime numbers up to", x, ":")
+    print(primes)
+
+# Example usage
+x = int(input("Enter a number: "))
+print_prime_numbers(x)
+In this code, the is_prime function checks whether a number n is prime or not by iterating from 2 to the square root of n. If any number in that range divides n evenly, then n is not a prime number.
+
+The print_prime_numbers function takes a number x as input and finds all prime numbers up to x by iterating from 2 to x. It calls the is_prime function to check each number, and if it's prime, it adds it to the primes list. Finally, it prints the prime numbers.
+
+You can run this code and enter a number x to see all the prime numbers up to x.
+
+
+
+
+
+User
+what is the time and space complexity of the above code
+ChatGPT
+The time complexity of the above code can be analyzed as follows:
+
+The is_prime function has a time complexity of O(sqrt(n)), where n is the input number. It iterates from 2 to the square root of n to check if any number in that range divides n evenly.
+
+The print_prime_numbers function calls the is_prime function for each number from 2 to x, resulting in a time complexity of O(x * sqrt(x)).
+
+Therefore, the overall time complexity of the code is O(x * sqrt(x)).
+
+Regarding space complexity:
+
+The is_prime function has a constant space complexity as it only uses a few variables for computation.
+
+The print_prime_numbers function uses a list, primes, to store the prime numbers. The size of this list depends on the number of prime numbers found up to x. In the worst case, all numbers from 2 to x are prime, resulting in a space complexity of O(x) for the primes list.
+
+Therefore, the overall space complexity of the code is O(x).
+
+In summary, the time complexity of the code is O(x * sqrt(x)), and the space complexity is O(x).
